@@ -1,6 +1,7 @@
 package com.example.odontograma.DTO;
 
 
+import com.example.odontograma.Entidad.Paciente;
 import jakarta.persistence.Column;
 import lombok.Builder;
 import lombok.Getter;
@@ -30,7 +31,7 @@ public class PacienteDTO {
 
     private String sexo;
 
-    private Integer edad;
+    private int edad;
 
     private Date fechaNacimiento;
 
@@ -42,37 +43,23 @@ public class PacienteDTO {
 
     private String reacciones;
 
-    public static PacienteDTO build( String nombre,
-                                     String apellidoP,
-                                     String apellidoM,
-                                     String email,
-                                     String telefono,
-                        String direccion,
-     String ciudad,
-     String codigoPostal,
-     String sexo,
-     Integer edad,
-     Date fechaNacimiento,
-     String ocupacion,
-     String medicamentos,
-     String alergias,
-     String reacciones){
+    public static PacienteDTO build(Paciente paciente){
         return PacienteDTO.builder()
-                .nombre(nombre)
-                .apellidoP(apellidoP)
-                .apellidoM(apellidoM)
-                .email(email)
-                .telefono(telefono)
-                .direccion(direccion)
-                .ciudad(ciudad)
-                .codigoPostal(codigoPostal)
-                .sexo(sexo)
-                .edad(edad)
-                .fechaNacimiento(fechaNacimiento)
-                .ocupacion(ocupacion)
-                .medicamentos(medicamentos)
-                .alergias(alergias)
-                .reacciones(reacciones)
+                .nombre(paciente.getNombre())
+                .apellidoP(paciente.getApellidoP())
+                .apellidoM(paciente.getApellidoM())
+                .email(paciente.getEmail())
+                .telefono(paciente.getTelefono())
+                .direccion(paciente.getDireccion())
+                .ciudad(paciente.getCiudad())
+                .codigoPostal(paciente.getCodigoPostal())
+                .sexo(paciente.getSexo())
+                .edad(paciente.getEdad())
+                .fechaNacimiento(paciente.getFechaNacimiento())
+                .ocupacion(paciente.getOcupacion())
+                .medicamentos(paciente.getMedicamentos())
+                .alergias(paciente.getAlergias())
+                .reacciones(paciente.getReacciones())
                 .build();
     }
 }

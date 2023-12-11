@@ -1,13 +1,12 @@
 package com.example.odontograma.Servicio;
 
-
 import com.example.odontograma.DTO.PacienteDTO;
 import com.example.odontograma.Entidad.Paciente;
+import com.example.odontograma.Form.PacienteForm;
 import com.example.odontograma.Repositorio.PacienteRepositorio;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -19,30 +18,37 @@ public class ServicioPaciente {
 
     private final PacienteRepositorio pacienteRepositorio;
 
-    public List<Paciente> ObtenerTodosLosPacientes(){
-        return pacienteRepositorio.findAll();
+    public List<PacienteDTO> ObtenerTodosLosPacientes(){
+
+        return pacienteRepositorio.findAll().stream().map(PacienteDTO::build).toList();
     }
 
-    public Paciente GuardarPaciente(Paciente paciente) {
-        return pacienteRepositorio.save(paciente);
+    public PacienteDTO GuardarPaciente(PacienteForm pacienteForm) {
+        final Paciente paciente = new Paciente(pacienteForm);
+        pacienteRepositorio.save(paciente);
+        return PacienteDTO.build(paciente);
+    }
+
+    public PacienteDTO ActualizarPaciente(long pacienteId,PacienteForm pacienteForm) {
+        final Paciente paciente = BuscarPorId(pacienteId);
+        paciente.Actualizar(pacienteForm);
+        pacienteRepositorio.save(paciente);
+        return PacienteDTO.build(paciente);
     }
 
     public PacienteDTO ObtenerPacienteId(Long id){
-        final Paciente paciente = pacienteRepositorio.getById(id);
-        return PacienteDTO.builder().nombre(paciente.getNombre())
-                .apellidoP(paciente.getApellidoP())
-                .apellidoM(paciente.getApellidoM())
-                .email(paciente.getEmail())
-                .telefono(paciente.getTelefono())
-                .direccion(paciente.getDireccion())
-                .ciudad(paciente.getCiudad())
-                .codigoPostal(paciente.getCodigoPostal())
-                .sexo(paciente.getSexo())
-                .edad(paciente.getEdad())
-                .fechaNacimiento(paciente.getFechaNacimiento())
-                .ocupacion(paciente.getOcupacion())
-                .medicamentos(paciente.getMedicamentos())
-                .alergias(paciente.getAlergias())
-                .reacciones(paciente.getReacciones()).build();
+        Paciente paciente = BuscarPorId(id);
+        return PacienteDTO.build(paciente);
     }
+
+    public void EliminarPaciente(long pacienteId) {
+        final Paciente paciente = BuscarPorId(pacienteId);
+        pacienteRepositorio.delete(paciente);
+    }
+
+    public Paciente BuscarPorId(long pacientId){
+        Optional<Paciente> paciente = pacienteRepositorio.findById(pacientId);
+        return paciente.get();
+    }
+
 }
