@@ -1,120 +1,90 @@
 package com.example.odontograma.DTO;
 
-import jakarta.persistence.Column;
+import com.example.odontograma.Entidad.Odontograma;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
-    @Getter
-    @Builder
-    public class OdontogramaDTO {
+@Getter
+@Builder
+public class OdontogramaDTO {
 
-        // Superior Derecha
-        private String SD11;
-        private String SD12;
-        private String SD13;
-        private String SD14;
-        private String SD15;
-        private String SD16;
-        private String SD17;
-        private String SD18;
+  // Superior Derecha
+  private int sd11;
+  private int sd12;
+  private int sd13;
+  private int sd14;
+  private int sd15;
+  private int sd16;
+  private int sd17;
+  private int sd18;
 
-        // Superior Izquierda
-        private String SI21;
-        private String SI22;
-        private String SI23;
-        private String SI24;
-        private String SI25;
-        private String SI26;
-        private String SI27;
-        private String SI28;
+  // Superior Izquierda
+  private int si21;
+  private int si22;
+  private int si23;
+  private int si24;
+  private int si25;
+  private int si26;
+  private int si27;
+  private int si28;
 
-        // Inferior Izquierda
-        private String IZ31;
-        private String IZ32;
-        private String IZ33;
-        private String IZ34;
-        private String IZ35;
-        private String IZ36;
-        private String IZ37;
-        private String IZ38;
+  // Inferior Izquierda
+  private int iz31;
+  private int iz32;
+  private int iz33;
+  private int iz34;
+  private int iz35;
+  private int iz36;
+  private int iz37;
+  private int iz38;
 
-        // Inferior Derecha
-        private String ID41;
-        private String ID42;
-        private String ID43;
-        private String ID44;
-        private String ID45;
-        private String ID46;
-        private String ID47;
-        private String ID48;
+  // Inferior Derecha
+  private int id41;
+  private int id42;
+  private int id43;
+  private int id44;
+  private int id45;
+  private int id46;
+  private int id47;
+  private int id48;
 
-        public static OdontogramaDTO build(String SD11,
-                                           String SD12,
-                                           String SD13,
-                                           String SD14,
-                                           String SD15,
-                                           String SD16,
-                                           String SD17,
-                                           String SD18,
-                                           String SI21,
-                                           String SI22,
-                                           String SI23,
-                                           String SI24,
-                                           String SI25,
-                                           String SI26,
-                                           String SI27,
-                                           String SI28,
-                                           String IZ31,
-                                           String IZ32,
-                                           String IZ33,
-                                           String IZ34,
-                                           String IZ35,
-                                           String IZ36,
-                                           String IZ37,
-                                           String IZ38,
-                                           String ID41,
-                                           String ID42,
-                                           String ID43,
-                                           String ID44,
-                                           String ID45,
-                                           String ID46,
-                                           String ID47,
-                                           String ID48) {
-            return OdontogramaDTO.builder().
-                    SD11(SD11).
-                    SD12(SD12).
-                    SD13(SD13).
-                    SD14(SD14).
-                    SD15(SD15).
-                    SD16(SD16).
-                    SD17(SD17).
-                    SD18(SD18).
-                    SI21(SI21).
-                    SI22(SI22).
-                    SI23(SI23).
-                    SI24(SI24).
-                    SI25(SI25).
-                    SI26(SI26).
-                    SI27(SI27).
-                    SI28(SI28).
-                    IZ31(IZ31).
-                    IZ32(IZ32).
-                    IZ33(IZ33).
-                    IZ34(IZ34).
-                    IZ35(IZ35).
-                    IZ36(IZ36).
-                    IZ37(IZ37).
-                    IZ38(IZ38).
-                    ID41(ID41).
-                    ID42(ID42).
-                    ID43(ID43).
-                    ID44(ID44).
-                    ID45(ID45).
-                    ID46(ID46).
-                    ID47(ID47).
-                    ID48(ID48)
-                    .build();
-        }
-    }
+  private int paciente_id;
 
+  public static OdontogramaDTO build(Odontograma odontograma) {
+    return OdontogramaDTO.builder()
+        .sd11(odontograma.getSd11())
+        .sd12(odontograma.getSd12())
+        .sd13(odontograma.getSd13())
+        .sd14(odontograma.getSd14())
+        .sd15(odontograma.getSd15())
+        .sd16(odontograma.getSd16())
+        .sd17(odontograma.getSd17())
+        .sd18(odontograma.getSd18())
+        .si21(odontograma.getSi21())
+        .si22(odontograma.getSi22())
+        .si23(odontograma.getSi23())
+        .si24(odontograma.getSi24())
+        .si25(odontograma.getSi25())
+        .si26(odontograma.getSi26())
+        .si27(odontograma.getSi27())
+        .si28(odontograma.getSi28())
+        .iz31(odontograma.getIz31())
+        .iz32(odontograma.getIz32())
+        .iz33(odontograma.getIz33())
+        .iz34(odontograma.getIz34())
+        .iz35(odontograma.getIz35())
+        .iz36(odontograma.getIz36())
+        .iz37(odontograma.getIz37())
+        .iz38(odontograma.getIz38())
+        .id41(odontograma.getId41())
+        .id42(odontograma.getId42())
+        .id43(odontograma.getId43())
+        .id44(odontograma.getId44())
+        .id45(odontograma.getId45())
+        .id46(odontograma.getId46())
+        .id47(odontograma.getId47())
+        .id48(odontograma.getId48())
+        .paciente_id(odontograma.getPaciente_id())
+        .build();
+  }
+}
