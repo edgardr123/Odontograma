@@ -1,5 +1,6 @@
 package com.example.odontograma.Entidad;
 
+import com.example.odontograma.Form.OdontogramaForm;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,138 +8,199 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
-
-
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @EqualsAndHashCode(of = {"id"})
 @Table(name = "pacientes_odontograma")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Odontograma implements Serializable{
+public class Odontograma implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-//TODO Cambiar string a byte
-    // Superior Derecha
+  private static final long serialVersionUid = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+  // Superior Derecha
 
-    @Column(name = "SD11")
-    private String SD11;
-    @Column(name = "SD12")
-    private String SD12;
-    @Column(name = "SD13")
-    private String SD13;
-    @Column(name = "SD14")
-    private String SD14;
-    @Column(name = "SD15")
-    private String SD15;
-    @Column(name = "SD16")
-    private String SD16;
-    @Column(name = "SD17")
-    private String SD17;
-    @Column(name = "SD18")
-    private String SD18;
-//TODO
-    // Superior Izquierda
-    @Column(name = "SI21")
-    private String SI21;
-    @Column(name = "SI22")
-    private String SI22;
-    @Column(name = "SI23")
-    private String SI23;
-    @Column(name = "SI24")
-    private String SI24;
-    @Column(name = "SI25")
-    private String SI25;
-    @Column(name = "SI26")
-    private String SI26;
-    @Column(name = "SI27")
-    private String SI27;
-    @Column(name = "SI28")
-    private String SI28;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
 
-    // Inferior Izquierda
-    @Column(name = "IZ31")
-    private String IZ31;
-    @Column(name = "IZ32")
-    private String IZ32;
-    @Column(name = "IZ33")
-    private String IZ33;
-    @Column(name = "IZ34")
-    private String IZ34;
-    @Column(name = "IZ35")
-    private String IZ35;
-    @Column(name = "IZ36")
-    private String IZ36;
-    @Column(name = "IZ37")
-    private String IZ37;
-    @Column(name = "IZ38")
-    private String IZ38;
+  @Column(name = "sd11")
+  private int sd11;
 
-    // Inferior Derecha
-    @Column(name = "ID41")
-    private String ID41;
-    @Column(name = "ID42")
-    private String ID42;
-    @Column(name = "ID43")
-    private String ID43;
-    @Column(name = "ID44")
-    private String ID44;
-    @Column(name = "ID45")
-    private String ID45;
-    @Column(name = "ID46")
-    private String ID46;
-    @Column(name = "ID47")
-    private String ID47;
-    @Column(name = "ID48")
-    private String ID48;
+  @Column(name = "sd12")
+  private int sd12;
 
-    public Odontograma(String sD11, String sD12, String sD13, String sD14, String sD15,
-                               String sD16, String sD17, String sD18, String sI21, String sI22, String sI23, String sI24, String sI25,
-                               String sI26, String sI27, String sI28, String iZ31, String iZ32, String iZ33, String iZ34, String iZ35,
-                               String iZ36, String iZ37, String iZ38, String iD41, String iD42, String iD43, String iD44, String iD45,
-                               String iD46, String iD47, String iD48) {
+  @Column(name = "sd13")
+  private int sd13;
 
+  @Column(name = "sd14")
+  private int sd14;
 
-        SD11 = sD11;
-        SD12 = sD12;
-        SD13 = sD13;
-        SD14 = sD14;
-        SD15 = sD15;
-        SD16 = sD16;
-        SD17 = sD17;
-        SD18 = sD18;
-        SI21 = sI21;
-        SI22 = sI22;
-        SI23 = sI23;
-        SI24 = sI24;
-        SI25 = sI25;
-        SI26 = sI26;
-        SI27 = sI27;
-        SI28 = sI28;
-        IZ31 = iZ31;
-        IZ32 = iZ32;
-        IZ33 = iZ33;
-        IZ34 = iZ34;
-        IZ35 = iZ35;
-        IZ36 = iZ36;
-        IZ37 = iZ37;
-        IZ38 = iZ38;
-        ID41 = iD41;
-        ID42 = iD42;
-        ID43 = iD43;
-        ID44 = iD44;
-        ID45 = iD45;
-        ID46 = iD46;
-        ID47 = iD47;
-        ID48 = iD48;
-    }
+  @Column(name = "sd15")
+  private int sd15;
+
+  @Column(name = "sd16")
+  private int sd16;
+
+  @Column(name = "sd17")
+  private int sd17;
+
+  @Column(name = "sd18")
+  private int sd18;
+
+  // Superior Izquierda
+  @Column(name = "si21")
+  private int si21;
+
+  @Column(name = "si22")
+  private int si22;
+
+  @Column(name = "si23")
+  private int si23;
+
+  @Column(name = "si24")
+  private int si24;
+
+  @Column(name = "si25")
+  private int si25;
+
+  @Column(name = "si26")
+  private int si26;
+
+  @Column(name = "si27")
+  private int si27;
+
+  @Column(name = "si28")
+  private int si28;
+
+  // Inferior Izquierda
+  @Column(name = "iz31")
+  private int iz31;
+
+  @Column(name = "iz32")
+  private int iz32;
+
+  @Column(name = "iz33")
+  private int iz33;
+
+  @Column(name = "iz34")
+  private int iz34;
+
+  @Column(name = "iz35")
+  private int iz35;
+
+  @Column(name = "iz36")
+  private int iz36;
+
+  @Column(name = "iz37")
+  private int iz37;
+
+  @Column(name = "iz38")
+  private int iz38;
+
+  // Inferior Derecha
+  @Column(name = "id41")
+  private int id41;
+
+  @Column(name = "id42")
+  private int id42;
+
+  @Column(name = "id43")
+  private int id43;
+
+  @Column(name = "id44")
+  private int id44;
+
+  @Column(name = "id45")
+  private int id45;
+
+  @Column(name = "id46")
+  private int id46;
+
+  @Column(name = "id47")
+  private int id47;
+
+  @Column(name = "id48")
+  private int id48;
+
+  @Column(name = "paciente_id", nullable = false)
+  private int paciente_id;
+
+  public Odontograma(OdontogramaForm odontogramaForm) {
+
+    this.sd11 = odontogramaForm.getSd11();
+    this.sd12 = odontogramaForm.getSd12();
+    this.sd13 = odontogramaForm.getSd13();
+    this.sd14 = odontogramaForm.getSd14();
+    this.sd15 = odontogramaForm.getSd15();
+    this.sd16 = odontogramaForm.getSd16();
+    this.sd17 = odontogramaForm.getSd17();
+    this.sd18 = odontogramaForm.getSd18();
+    this.si21 = odontogramaForm.getSi21();
+    this.si22 = odontogramaForm.getSi22();
+    this.si23 = odontogramaForm.getSi23();
+    this.si24 = odontogramaForm.getSi24();
+    this.si25 = odontogramaForm.getSi25();
+    this.si26 = odontogramaForm.getSi26();
+    this.si27 = odontogramaForm.getSi27();
+    this.si28 = odontogramaForm.getSi28();
+    this.iz31 = odontogramaForm.getIz31();
+    this.iz32 = odontogramaForm.getIz32();
+    this.iz33 = odontogramaForm.getIz33();
+    this.iz34 = odontogramaForm.getIz34();
+    this.iz35 = odontogramaForm.getIz35();
+    this.iz36 = odontogramaForm.getIz36();
+    this.iz37 = odontogramaForm.getIz37();
+    this.iz38 = odontogramaForm.getIz38();
+    this.id41 = odontogramaForm.getId41();
+    this.id42 = odontogramaForm.getId42();
+    this.id43 = odontogramaForm.getId43();
+    this.id44 = odontogramaForm.getId44();
+    this.id45 = odontogramaForm.getId45();
+    this.id46 = odontogramaForm.getId46();
+    this.id47 = odontogramaForm.getId47();
+    this.id48 = odontogramaForm.getId48();
+    this.paciente_id = odontogramaForm.getPaciente_id();
+  }
+
+  public void ActualizarOdontograma(OdontogramaForm odontogramaForm) {
+
+    this.sd11 = odontogramaForm.getSd11();
+    this.sd12 = odontogramaForm.getSd12();
+    this.sd13 = odontogramaForm.getSd13();
+    this.sd14 = odontogramaForm.getSd14();
+    this.sd15 = odontogramaForm.getSd15();
+    this.sd16 = odontogramaForm.getSd16();
+    this.sd17 = odontogramaForm.getSd17();
+    this.sd18 = odontogramaForm.getSd18();
+    this.si21 = odontogramaForm.getSi21();
+    this.si22 = odontogramaForm.getSi22();
+    this.si23 = odontogramaForm.getSi23();
+    this.si24 = odontogramaForm.getSi24();
+    this.si25 = odontogramaForm.getSi25();
+    this.si26 = odontogramaForm.getSi26();
+    this.si27 = odontogramaForm.getSi27();
+    this.si28 = odontogramaForm.getSi28();
+    this.iz31 = odontogramaForm.getIz31();
+    this.iz32 = odontogramaForm.getIz32();
+    this.iz33 = odontogramaForm.getIz33();
+    this.iz34 = odontogramaForm.getIz34();
+    this.iz35 = odontogramaForm.getIz35();
+    this.iz36 = odontogramaForm.getIz36();
+    this.iz37 = odontogramaForm.getIz37();
+    this.iz38 = odontogramaForm.getIz38();
+    this.id41 = odontogramaForm.getId41();
+    this.id42 = odontogramaForm.getId42();
+    this.id43 = odontogramaForm.getId43();
+    this.id44 = odontogramaForm.getId44();
+    this.id45 = odontogramaForm.getId45();
+    this.id46 = odontogramaForm.getId46();
+    this.id47 = odontogramaForm.getId47();
+    this.id48 = odontogramaForm.getId48();
+    this.paciente_id = odontogramaForm.getPaciente_id();
+  }
 }

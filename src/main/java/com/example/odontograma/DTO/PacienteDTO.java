@@ -1,78 +1,64 @@
 package com.example.odontograma.DTO;
 
-
-import jakarta.persistence.Column;
+import com.example.odontograma.Entidad.Paciente;
+import java.util.Date;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
-
-import java.util.Date;
 
 @Getter
 @Builder
 public class PacienteDTO {
 
-    private String nombre;
+  private Integer id;
 
-    private String apellidoP;
+  private String nombre;
 
-    private String apellidoM;
+  private String apellidoP;
 
-    private String email;
+  private String apellidoM;
 
-    private String telefono;
+  private String email;
 
-    private String direccion;
+  private String telefono;
 
-    private String ciudad;
+  private String direccion;
 
-    private String codigoPostal;
+  private String ciudad;
 
-    private String sexo;
+  private String codigoPostal;
 
-    private Integer edad;
+  private String sexo;
 
-    private Date fechaNacimiento;
+  private int edad;
 
-    private String ocupacion;
+  private Date fechaNacimiento;
 
-    private String medicamentos;
+  private String ocupacion;
 
-    private String alergias;
+  private String medicamentos;
 
-    private String reacciones;
+  private String alergias;
 
-    public static PacienteDTO build( String nombre,
-                                     String apellidoP,
-                                     String apellidoM,
-                                     String email,
-                                     String telefono,
-                        String direccion,
-     String ciudad,
-     String codigoPostal,
-     String sexo,
-     Integer edad,
-     Date fechaNacimiento,
-     String ocupacion,
-     String medicamentos,
-     String alergias,
-     String reacciones){
-        return PacienteDTO.builder()
-                .nombre(nombre)
-                .apellidoP(apellidoP)
-                .apellidoM(apellidoM)
-                .email(email)
-                .telefono(telefono)
-                .direccion(direccion)
-                .ciudad(ciudad)
-                .codigoPostal(codigoPostal)
-                .sexo(sexo)
-                .edad(edad)
-                .fechaNacimiento(fechaNacimiento)
-                .ocupacion(ocupacion)
-                .medicamentos(medicamentos)
-                .alergias(alergias)
-                .reacciones(reacciones)
-                .build();
-    }
+  private String reacciones;
+
+  public static PacienteDTO build(Paciente paciente) {
+    return PacienteDTO.builder()
+            .id(paciente.getId())
+        .nombre(paciente.getNombre())
+        .apellidoP(paciente.getApellidoP())
+        .apellidoM(paciente.getApellidoM())
+        .email(paciente.getEmail())
+        .telefono(paciente.getTelefono())
+        .direccion(paciente.getDireccion())
+        .ciudad(paciente.getCiudad())
+        .codigoPostal(paciente.getCodigoPostal())
+        .sexo(paciente.getSexo())
+        .edad(paciente.getEdad())
+        .fechaNacimiento(paciente.getFechaNacimiento())
+        .ocupacion(paciente.getOcupacion())
+        .medicamentos(paciente.getMedicamentos())
+        .alergias(paciente.getAlergias())
+        .reacciones(paciente.getReacciones())
+        .build();
+  }
 }

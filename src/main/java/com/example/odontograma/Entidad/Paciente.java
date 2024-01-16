@@ -1,4 +1,6 @@
 package com.example.odontograma.Entidad;
+
+import com.example.odontograma.Form.PacienteForm;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,7 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
-
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,90 +21,94 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Paciente implements Serializable
-{
-    private static final long serialVersionUID = 1L;
+public class Paciente implements Serializable {
+  private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
+  private int id;
 
-    @Column(name = "nombre", length = 60, nullable = false)
-    private String nombre;
+  @Column(name = "nombre", length = 60, nullable = false)
+  private String nombre;
 
-    @Column(name = "apellidoP", length = 60, nullable = false)
-    private String apellidoP;
-    @Column(name = "apellidoM", length = 60, nullable = false)
-    private String apellidoM;
+  @Column(name = "apellidoP", length = 60, nullable = false)
+  private String apellidoP;
 
-    @Column(name = "email", length = 60, nullable = false, unique = true)
-    private String email;
+  @Column(name = "apellidoM", length = 60, nullable = false)
+  private String apellidoM;
 
-    @Column(name = "telefono")
-    private String telefono;
+  @Column(name = "email", length = 60, nullable = false, unique = true)
+  private String email;
 
-    @Column(name = "direccion")
-    private String direccion;
+  @Column(name = "telefono")
+  private String telefono;
 
-    @Column(name = "ciudad")
-    private String ciudad;
+  @Column(name = "direccion")
+  private String direccion;
 
-    @Column(name = "codigo_postal")
-    private String codigoPostal;
+  @Column(name = "ciudad")
+  private String ciudad;
 
-    @Column(name = "sexo")
-    private String sexo;
+  @Column(name = "codigo_postal")
+  private String codigoPostal;
 
-    @Column(name = "edad")
-    private Integer edad;
+  @Column(name = "sexo")
+  private String sexo;
 
-    @Column(name = "fecha_nacimiento")
-    private Date fechaNacimiento;
+  @Column(name = "edad")
+  private Integer edad;
 
-    @Column(name = "ocupacion")
-    private String ocupacion;
+  @Column(name = "fecha_nacimiento")
+  private Date fechaNacimiento;
 
-    @Column(name = "medicamentos", length = 600)
-    private String medicamentos;
+  @Column(name = "ocupacion")
+  private String ocupacion;
 
-    @Column(name = "alergias", length = 600)
-    private String alergias;
+  @Column(name = "medicamentos", length = 600)
+  private String medicamentos;
 
-    @Column(name = "reacciones", length = 600)
-    private String reacciones;
+  @Column(name = "alergias", length = 600)
+  private String alergias;
 
-    //TODO notas adicionales
+  @Column(name = "reacciones", length = 600)
+  private String reacciones;
 
-    public Paciente(String nombre,
-                    String apellidoP,
-                    String apellidoM,
-                    String email,
-                    String telefono,
-                    String direccion,
-                    String ciudad,
-                    String codigoPostal,
-                    String sexo,
-                    Integer edad,
-                    Date fechaNacimiento,
-                    String ocupacion,
-                    String medicamentos,
-                    String alergias,
-                    String reacciones) {
+  public Paciente(PacienteForm pacienteForm) {
 
-        this.nombre = nombre;
-        this.apellidoP = apellidoP;
-        this.apellidoM = apellidoM;
-        this.email = email;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.ciudad = ciudad;
-        this.codigoPostal = codigoPostal;
-        this.sexo = sexo;
-        this.edad = edad;
-        this.fechaNacimiento = fechaNacimiento;
-        this.ocupacion = ocupacion;
-        this.medicamentos = medicamentos;
-        this.alergias = alergias;
-        this.reacciones = reacciones;
-    }
+    this.nombre = pacienteForm.getNombre();
+    this.apellidoP = pacienteForm.getApellidoP();
+    this.apellidoM = pacienteForm.getApellidoM();
+    this.email = pacienteForm.getEmail();
+    this.telefono = pacienteForm.getTelefono();
+    this.direccion = pacienteForm.getDireccion();
+    this.ciudad = pacienteForm.getCiudad();
+    this.codigoPostal = pacienteForm.getCodigoPostal();
+    this.sexo = pacienteForm.getSexo();
+    this.edad = pacienteForm.getEdad();
+    this.fechaNacimiento = pacienteForm.getFechaNacimiento();
+    this.ocupacion = pacienteForm.getOcupacion();
+    this.medicamentos = pacienteForm.getMedicamentos();
+    this.alergias = pacienteForm.getAlergias();
+    this.reacciones = pacienteForm.getReacciones();
+  }
+
+  public void Actualizar(PacienteForm pacienteForm) {
+
+    this.nombre = pacienteForm.getNombre();
+    this.apellidoP = pacienteForm.getApellidoP();
+    this.apellidoM = pacienteForm.getApellidoM();
+    this.email = pacienteForm.getEmail();
+    this.telefono = pacienteForm.getTelefono();
+    this.direccion = pacienteForm.getDireccion();
+    this.ciudad = pacienteForm.getCiudad();
+    this.codigoPostal = pacienteForm.getCodigoPostal();
+    this.sexo = pacienteForm.getSexo();
+    this.edad = pacienteForm.getEdad();
+    this.fechaNacimiento = pacienteForm.getFechaNacimiento();
+    this.ocupacion = pacienteForm.getOcupacion();
+    this.medicamentos = pacienteForm.getMedicamentos();
+    this.alergias = pacienteForm.getAlergias();
+    this.reacciones = pacienteForm.getReacciones();
+  }
 }
