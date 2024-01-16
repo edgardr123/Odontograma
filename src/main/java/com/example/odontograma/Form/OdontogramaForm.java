@@ -1,6 +1,5 @@
 package com.example.odontograma.Form;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import lombok.Data;

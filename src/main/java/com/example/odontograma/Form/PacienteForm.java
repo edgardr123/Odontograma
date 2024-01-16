@@ -72,7 +72,7 @@ public class PacienteForm implements Serializable {
 
   @PastOrPresent
   @NotNull
-  @ApiObjectField(name = "direccion", description = "Diriccion del paciente", required = true)
+  @ApiObjectField(name = "direccion", description = "Fecha de nacimiento", required = true)
   private Date fechaNacimiento;
 
   @ApiObjectField(name = "ocupacion", description = "Ocupacion del paciente", required = true)

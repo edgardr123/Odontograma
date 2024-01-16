@@ -8,6 +8,7 @@ import lombok.Getter;
 @Builder
 public class OdontogramaDTO {
 
+  private Integer id;
   // Superior Derecha
   private int sd11;
   private int sd12;
@@ -52,6 +53,7 @@ public class OdontogramaDTO {
 
   public static OdontogramaDTO build(Odontograma odontograma) {
     return OdontogramaDTO.builder()
+            .id(odontograma.getId())
         .sd11(odontograma.getSd11())
         .sd12(odontograma.getSd12())
         .sd13(odontograma.getSd13())

@@ -26,6 +26,7 @@ public class Paciente implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
   private int id;
 
   @Column(name = "nombre", length = 60, nullable = false)
@@ -72,8 +73,6 @@ public class Paciente implements Serializable {
 
   @Column(name = "reacciones", length = 600)
   private String reacciones;
-
-  // TODO notas adicionales
 
   public Paciente(PacienteForm pacienteForm) {
 

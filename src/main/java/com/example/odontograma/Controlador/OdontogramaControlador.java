@@ -10,22 +10,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Odontograma")
+@RequestMapping("/api/odontograma")
 @RequiredArgsConstructor
 public class OdontogramaControlador {
 
-  @Autowired
-  private ServicioOdontograma servicioOdontograma;
+  @Autowired private ServicioOdontograma servicioOdontograma;
 
   @PostMapping
-  public ResponseEntity<OdontogramaDTO> guardarOdontograma(@RequestBody OdontogramaForm odontogramaForm) {
+  public ResponseEntity<OdontogramaDTO> guardarOdontograma(
+      @RequestBody OdontogramaForm odontogramaForm) {
     return ResponseEntity.ok(servicioOdontograma.GuardarOdontograma(odontogramaForm));
   }
 
   @PutMapping("/{odontogramaId}")
-  public ResponseEntity<OdontogramaDTO> actualizarOdontograma(@PathVariable("odontogramaId") long odontogramaId,
+  public ResponseEntity<OdontogramaDTO> actualizarOdontograma(
+      @PathVariable("odontogramaId") long odontogramaId,
       @RequestBody OdontogramaForm odontogramaForm) {
-    return ResponseEntity.ok(servicioOdontograma.ActualizarOdontograma(odontogramaId, odontogramaForm));
+    return ResponseEntity.ok(
+        servicioOdontograma.ActualizarOdontograma(odontogramaId, odontogramaForm));
   }
 
   @GetMapping
@@ -33,12 +35,12 @@ public class OdontogramaControlador {
     return ResponseEntity.ok(ResponseDTO.build(servicioOdontograma.ObtenerTodosLosOdontogramas()));
   }
 
-  @GetMapping("/Odontograma/{id}")
+  @GetMapping("/{id}")
   public ResponseEntity<OdontogramaDTO> ObtenerOdontogramaId(@PathVariable Long id) {
     return ResponseEntity.ok(servicioOdontograma.ObtenerOdontogramaId(id));
   }
 
-  @DeleteMapping("/Odontograma/{id}/Eliminar")
+  @DeleteMapping("{id}/Eliminar")
   public ResponseEntity<Void> EliminarOdontograma(@PathVariable Long id) {
     servicioOdontograma.EliminarOdontograma(id);
     return ResponseEntity.ok().build();

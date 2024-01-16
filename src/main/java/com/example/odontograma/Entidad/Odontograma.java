@@ -22,7 +22,6 @@ public class Odontograma implements Serializable {
 
   private static final long serialVersionUid = 1L;
 
-  // TODO Cambiar string a int
   // Superior Derecha
 
   @Id

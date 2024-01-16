@@ -10,12 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Paciente")
+@RequestMapping("/api/pacientes")
 @RequiredArgsConstructor
 public class PacienteControlador {
 
-  @Autowired
-  private ServicioPaciente servicioPaciente;
+  @Autowired private ServicioPaciente servicioPaciente;
 
   @PostMapping
   public ResponseEntity<PacienteDTO> guardarPaciente(@RequestBody PacienteForm pacienteForm) {
@@ -34,12 +33,12 @@ public class PacienteControlador {
     return ResponseEntity.ok(ResponseDTO.build(servicioPaciente.ObtenerTodosLosPacientes()));
   }
 
-  @GetMapping("/Paciente/{id}")
+  @GetMapping("/{id}")
   public ResponseEntity<PacienteDTO> obtenerPacienteId(@PathVariable Long id) {
     return ResponseEntity.ok(servicioPaciente.ObtenerPacienteId(id));
   }
 
-  @DeleteMapping("/Paciente/{id}/Eliminar")
+  @DeleteMapping("/{id}/Eliminar")
   public ResponseEntity<Void> EliminarPaciente(@PathVariable Long id) {
     servicioPaciente.EliminarPaciente(id);
     return ResponseEntity.ok().build();

@@ -18,7 +18,6 @@ public class ServicioPaciente {
   private final PacienteRepositorio pacienteRepositorio;
 
   public List<PacienteDTO> ObtenerTodosLosPacientes() {
-
     return pacienteRepositorio.findAll().stream().map(PacienteDTO::build).toList();
   }
 

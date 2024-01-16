@@ -9,6 +9,8 @@ import lombok.Getter;
 @Builder
 public class PacienteDTO {
 
+  private Integer id;
+
   private String nombre;
 
   private String apellidoP;
@@ -41,6 +43,7 @@ public class PacienteDTO {
 
   public static PacienteDTO build(Paciente paciente) {
     return PacienteDTO.builder()
+            .id(paciente.getId())
         .nombre(paciente.getNombre())
         .apellidoP(paciente.getApellidoP())
         .apellidoM(paciente.getApellidoM())
